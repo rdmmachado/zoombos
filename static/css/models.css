@@ -1,0 +1,50 @@
+/* Estilos para o overlay do modal */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Transparência para o overlay */
+    z-index: 1000;
+    /* Certifique-se de que o overlay esteja acima de todos os outros elementos */
+}
+
+
+/* Estilos para o modal */
+
+.modal {
+    position: fixed;
+    top: 50%;
+    /* Posiciona o modal verticalmente no centro da tela */
+    left: 50%;
+    /* Posiciona o modal horizontalmente no centro da tela */
+    transform: translate(-50%, -50%);
+    /* Centraliza o modal */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    z-index: 1001;
+    /* Certifique-se de que o modal esteja acima do overlay */
+}
+
+
+/* Estilos para o botão de fechar do modal */
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+/* Estilos para o conteúdo do modal */
+
+.modal-content {
+    /* Adicione estilos específicos conforme necessário */
+}

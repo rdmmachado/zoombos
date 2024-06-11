@@ -1,0 +1,66 @@
+<!-- Clientes.html -->
+{% extends 'master.html' %} {% block additional_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/paginas.css') }}"
+/>
+{% endblock %}{% block content %}
+
+<h2>Clientes Cadastrados</h2>
+
+<div class="list-cliente-container">
+  <form
+    class="form-container"
+    method="GET"
+    action="{{ url_for('clientes.pesquisar_cliente') }}"
+  >
+    <!-- Input e label aqui -->
+    <label for="nome_cliente">Nome do Cliente:</label>
+    <input
+      type="text"
+      id="nome_cliente"
+      name="nome_cliente"
+      placeholder="Digite o nome do cliente..."
+    />
+
+    <!-- Botões aqui -->
+    <div class="btn-container" id="btnClienteConsulta">
+      <button id="btn-consultar">Consultar</button>
+    </div>
+  </form>
+  <div class="btn-novo">
+    <a href="{{ url_for('clientes.cadastrocliente') }}">
+      <button id="btn-novo">Novo</button></a
+    >
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for cliente in clientes %}
+    <tr>
+      <td>{{ cliente.nome }}</td>
+      <td class="icone">
+        <a
+          href="{{ url_for('clientes.editarclientes', cliente_id=cliente.id) }}"
+        >
+          <span class="icon"> <ion-icon name="search-outline"></ion-icon></span
+        ></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="pagination">
+  <!-- Adicione a lógica da paginação aqui -->
+</div>
+
+{% endblock %}

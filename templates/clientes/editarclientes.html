@@ -1,0 +1,55 @@
+<!-- Editarclientes.html -->
+{% extends 'master.html' %} {% block additional_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/paginas.css') }}"
+/>
+{% endblock %}{% block content %}
+
+<h2>Editar Informações do Cliente</h2>
+
+<form
+  class="form-container"
+  id="meuFormulario"
+  action="{{ url_for('clientes.editarclientes', cliente_id = cliente.id)}}"
+  method="POST"
+>
+  <div class="cadastro-container">
+    <!-- Campos de formulário semelhantes aos da página de cadastro -->
+    <label for="nome">Nome Completo:</label>
+    <input
+      type="text"
+      id="nome"
+      name="nome"
+      required
+      value="{{ cliente.nome }}"
+    />
+
+    <label for="telefone">Telefone:</label>
+    <input
+      type="tel"
+      id="telefone"
+      name="telefone"
+      required
+      value="{{ cliente.telefone }}"
+    />
+
+    <label for="endereco">Endereço:</label>
+    <input
+      type="text"
+      id="endereco"
+      name="endereco"
+      required
+      value="{{ cliente.endereco }}"
+    />
+  </div>
+  <!-- Adicione outros campos conforme necessário -->
+  <div class="btn-container" id="btnClienteCadastro">
+    <button type="submit">Atualizar Cliente</button>
+    <button type="button" class="btn-cancelar" onclick="cancelar()">
+      Cancelar
+    </button>
+  </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+<!-- Consultar_Ordem_servico.html -->
+{% extends 'master.html' %} {% block additional_styles %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/paginas.css') }}"
+/>
+<style type="text/css">
+  .center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  p {
+    padding: 10px;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="center-container">
+  <img
+    src="{{ url_for('static', filename='images/logotropical.png') }}"
+    alt=""
+    style="width: 30%"
+  />
+  <h1>Ordem de Serviço</h1>
+  <h2>Venho através deste comprovar que estivemos executando o serviço de:</h2>
+</div>
+<div>
+  <p>ID: {{ ordem_servico.id }}</p>
+  <p>Cliente: {{ cliente.nome }}</p>
+  <p>Data de Realização: {{ ordem_servico.data_realizacao }}</p>
+  <p>Limpeza: {{ "Sim" if ordem_servico.limpeza else "Não" }}</p>
+  <p>Poda de Grama: {{ "Sim" if ordem_servico.poda_grama else "Não" }}</p>
+  <p>Poda de Plantas: {{ "Sim" if ordem_servico.poda_plantas else "Não" }}</p>
+  <p>Outros: {{ "Sim" if ordem_servico.outros else "Não" }}</p>
+  {% if ordem_servico.outros %}
+  <p>Descrição dos Outros: {{ ordem_servico.outros_descricao }}</p>
+  {% endif %}
+
+  <p>
+    Assinatura do Jardineiro:
+    <img
+      src="{{ ordem_servico.assinatura_jardineiro }}"
+      alt="Assinatura do Jardineiro"
+      width="30%"
+    />
+  </p>
+  <p>Responsável: {{ ordem_servico.responsavel_type }}</p>
+  <p>
+    Assinatura do Responsável:
+    <img
+      src="{{ ordem_servico.assinatura_responsavel }}"
+      alt="Assinatura do Responsável"
+      width="30%"
+    />
+  </p>
+  {% if ordem_servico.observacao %}
+  <p>Observação: {{ ordem_servico.observacao }}</p>
+  {% endif %}
+</div>
+<!-- Adicione aqui os outros campos da ordem de serviço que deseja exibir -->
+<button onclick="printPDF()">Imprimir PDF</button>
+
+<script>
+  function printPDF() {
+    window.print();
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,29 @@
+.checkbox-container {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 30px;
+}
+
+.row1 {
+    display: flex;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2px;
+    margin-right: 60px;
+    /* Adapte a margem conforme necessário */
+}
+
+form {
+    margin-top: 30px;
+}
+
+#divResponsavel {
+    margin-top: 20px;
+}
+
+.margem {
+    margin-top: 20px;
+}

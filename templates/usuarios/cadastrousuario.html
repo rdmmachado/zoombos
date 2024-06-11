@@ -1,0 +1,53 @@
+<!-- CadastroUsuario.html -->
+{% extends 'master.html' %} {% block additional_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/paginas.css') }}"
+/>
+{% endblock %}{% block content %}
+
+<h2>Cadastra Novo Usuario</h2>
+
+<form
+  class="form-container"
+  id="meuFormulario"
+  method="POST"
+  action="{{ url_for('usuarios.cadastro_usuario') }}"
+>
+  <div class="cadastro-container">
+    <!-- Campos de formulário semelhantes aos da página de cadastro -->
+    <label for="nome">nome</label>
+    <input type="text" id="nome" name="nome" />
+
+    <label for="telefone">email</label>
+    <input type="text" id="email" name="email" />
+
+    <label for="login">Login</label>
+    <input type="text" id="login" name="login" />
+
+    <label for="endereco">Senha</label>
+    <input type="password" id="senha" name="senha" />
+    <br /><br /><input type="checkbox" onclick="togglePasswordVisibility()" />
+    Mostrar senha
+  </div>
+  <!-- Adicione outros campos conforme necessário -->
+  <div class="btn-container" id="btnClienteCadastro">
+    <button type="submit">Gravar Usuario</button>
+    <button type="button" class="btn-cancelar" onclick="cancelar()">
+      Cancelar
+    </button>
+  </div>
+</form>
+
+<script>
+  function togglePasswordVisibility() {
+    var senhaInput = document.getElementById("senha");
+    if (senhaInput.type === "password") {
+      senhaInput.type = "text";
+    } else {
+      senhaInput.type = "password";
+    }
+  }
+</script>
+
+{% endblock %}

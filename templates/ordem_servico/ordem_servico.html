@@ -1,0 +1,88 @@
+<!-- OrdemServico.html -->
+{% extends 'master.html' %} {% block additional_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/paginas.css') }}"
+/>
+{% endblock %}{% block content %}
+
+<h2>Ordem de Serviço</h2>
+
+<div class="list-cliente-container">
+  <form
+    class="form-container"
+    method="GET"
+    action="{{ url_for('ordem_servico.Ordem_servico') }}"
+  >
+    <!-- Input e label aqui -->
+    <label for="ordem_servico">Ordem de Serviço:</label>
+    <input
+      type="text"
+      id="ordem_servico"
+      name="ordem_servico"
+      placeholder="Digite a OS..."
+    />
+
+    <!-- Botões aqui -->
+    <div class="btn-container" id="btnClienteConsulta">
+      <button id="btn-consultar">Consultar</button>
+    </div>
+  </form>
+  <div class="btn-novo">
+    <a href="{{ url_for('ordem_servico.cad_ordem_servico') }}">
+      <button id="btn-novo">Novo</button></a
+    >
+  </div>
+</div>
+<div class="custom-page">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Codigo</th>
+        <th>Ciente</th>
+        <th>Data Visista</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for ordem_servico, cliente in ordens_servico.items %}
+      <tr>
+        <td>{{ ordem_servico.id }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ ordem_servico.data_realizacao.strftime('%d/%m/%Y') }}</td>
+        <td class="icone">
+          <a
+            href="{{ url_for('ordem_servico.pdf_ordem_servico', ordem_servico_id=ordem_servico.id) }}"
+          >
+            <span class="icon"
+              ><ion-icon name="download-outline"></ion-icon></span
+          ></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class="pagination">
+  {% if ordens_servico.has_prev %}
+  <a
+    href="{{ url_for('ordem_servico.Ordem_servico', page=ordens_servico.prev_num) }}"
+    >&laquo; Anterior</a
+  >
+  {% endif %} {% for num in ordens_servico.iter_pages() %} {% if num %} {% if
+  num == ordens_servico.page %}
+  <strong>{{ num }}</strong>
+  {% else %}
+  <a href="{{ url_for('ordem_servico.Ordem_servico', page=num) }}">{{ num }}</a>
+  {% endif %} {% else %}
+  <span class="ellipsis">...</span>
+  {% endif %} {% endfor %} {% if ordens_servico.has_next %}
+  <a
+    href="{{ url_for('ordem_servico.Ordem_servico', page=ordens_servico.next_num) }}"
+    >Próximo &raquo;</a
+  >
+  {% endif %}
+</div>
+
+{% endblock %}

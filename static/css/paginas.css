@@ -1,0 +1,260 @@
+/* Adicione estilos específicos para a página de Ordem de Serviço aqui */
+
+.order-service-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.list-cliente-container {
+    justify-content: space-between;
+    margin-right: 20px;
+    width: 100%;
+}
+
+.list-cliente-container input {
+    margin-top: 20px;
+    width: 70%;
+    /* Ou o valor que você preferir */
+}
+
+.btn-novo {
+    text-align: right;
+    width: 100%;
+}
+
+.btn-novo button {
+    margin-bottom: 20px;
+    width: 22%;
+    background-color: chocolate;
+}
+
+#btnClienteConsulta {
+    width: 25%;
+    margin-top: 20px;
+}
+
+#btnClienteCadastro {
+    margin-top: 30px;
+}
+
+.client-container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    margin-top: 20px;
+    width: 100%;
+    min-width: auto;
+    /* Divide em duas colunas iguais */
+    /* Espaçamento entre as colunas */
+}
+
+
+/* -------------------- */
+
+@media (max-width: 768px) {
+    .form-container {
+        grid-template-columns: 100%;
+    }
+    .btn-container {
+        grid-column: 1;
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.form-conteiner {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 100%;
+    min-width: auto;
+    margin-top: 50px;
+    /* Divide em duas colunas iguais */
+    /* Espaçamento entre as colunas */
+}
+
+.cadastro-container {
+    grid-column: 1;
+    width: 70%;
+    /* Coluna para os campos de input e rótulos */
+}
+
+.btn-container {
+    grid-column: 2;
+    margin-left: 50px;
+    width: 20%;
+    /* Coluna para o botão */
+}
+
+.btn-container button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+/* Estilos adicionais conforme necessário */
+
+form {
+    width: auto;
+    display: flex
+}
+
+
+/* ====================== */
+
+
+/* ====================== */
+
+
+/* Estilo para a tabela */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+/* Estilo para as células da tabela */
+
+.table td,
+.table th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+/* Estilo para os links dentro das células */
+
+.table td a {
+    text-decoration: none;
+    color: #007bff;
+    /* Cor azul, você pode alterar conforme necessário */
+    margin-right: 5px;
+    font-size: 2vw;
+}
+
+.icone {
+    text-align: center;
+}
+
+
+/* Estilo para as células do cabeçalho da tabela */
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #f2f2f2;
+    color: #000000;
+    width: 800%;
+}
+
+
+/* Estilo para os links dentro das células */
+
+.table td a {
+    text-decoration: none;
+    color: #007bff;
+    /* Cor azul, você pode alterar conforme necessário */
+    margin-right: 5px;
+    font-size: 2vw;
+}
+
+
+/* Estilo para os links de editar */
+
+.table td a.editar {
+    color: #28a745;
+    /* Cor verde, você pode alterar conforme necessário */
+}
+
+
+/* Estilo para os links de excluir */
+
+.table td a.excluir {
+    color: #dc3545;
+    /* Cor vermelha, você pode alterar conforme necessário */
+}
+
+h2 {
+    text-align: center;
+    background-color: #ebebeb;
+    padding: 1%;
+}
+
+
+/* Paginação personalizada */
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    color: #000;
+    border: 1px solid #ddd;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #f2f2f2;
+}
+
+.pagination .current {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+}
+
+.pagination .ellipsis {
+    margin: 0 4px;
+}
+
+.pagination strong {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 16px;
+    border: 1px solid #4caf50;
+}
+
+
+/* Ajuste de largura das colunas */
+
+
+/* Estilo para 5 coluna */
+
+
+/* Estilos específicos para a página OrdemServico.html */
+
+.custom-page .table th:first-child,
+.custom-page .table td:first-child {
+    width: 5%;
+    text-align: center;
+    /* Defina o tamanho da primeira coluna aqui */
+}
+
+.custom-page .table th:nth-child(2),
+.custom-page .table td:nth-child(2) {
+    width: 40%;
+    /* Defina o tamanho da segunda coluna aqui */
+}
+
+.custom-page .table th:nth-child(3),
+.custom-page .table td:nth-child(3) {
+    width: 20%;
+    /* Defina o tamanho da terceira coluna aqui */
+}
+
+.custom-page .table th:nth-child(4),
+.custom-page .table td:nth-child(4) {
+    width: 5%;
+    /* Defina o tamanho da quarta coluna aqui */
+}
+
+.custom-page .table th:nth-child(5),
+.custom-page .table td:nth-child(5) {
+    width: 5%;
+    /* Defina o tamanho da quarta coluna aqui */
+}

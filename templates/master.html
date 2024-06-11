@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styler.css') }}"
+    />
+    {% block additional_styles %}{% endblock %}
+    <title>Ordem de Serviço Online</title>
+  </head>
+
+  <body>
+    <!-- =========== Menu Naveção ============ -->
+    <div class="container_Master">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="">
+              <span class="icon">
+                <img
+                  src="{{ url_for('static', filename='images/logo.png') }}"
+                  alt=""
+                  style="height: 30px"
+                />
+              </span>
+              <span class="title">ZOOMB OS ONLINE</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('clientes.clientes') }}">
+              <span class="icon">
+                <ion-icon name="person-add-outline"></ion-icon>
+              </span>
+              <span class="title">Cliente</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('ordem_servico.Ordem_servico') }}">
+              <span class="icon"
+                ><ion-icon name="leaf-outline"></ion-icon
+              ></span>
+              <span class="title">Ordem Serviço</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('usuarios.usuario') }}">
+              <span class="icon">
+                <ion-icon name="person-add-outline"></ion-icon>
+              </span>
+              <span class="title">Usuário</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="cash-outline"></ion-icon>
+              </span>
+              <span class="title" style="display: none">Financeiro</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- =================== MAIN =============== -->
+      <div class="main">
+        <div class="topbar">
+          <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
+          <div class="user">
+            <a href="{{ url_for('login.logout') }}">
+              <ion-icon name="people-circle-outline"> </ion-icon
+            ></a>
+          </div>
+        </div>
+
+        <div class="details">
+          <div class="recentOrders">{% block content %}{% endblock %}</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <!-- ==========Icone codigo =========== -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
